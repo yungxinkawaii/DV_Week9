@@ -6,7 +6,7 @@
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/yungxinkawaii/DV_Week9/master/data/ne_110m_admin_0_countries.topojson",
+        "url": "https://raw.githubusercontent.com/yungxinkawaii/DV_Week9/master/data/ne_110m_admin.topojson",
         "format": {
           "type": "topojson",
           "feature": "ne_110m_admin_0_countries"
