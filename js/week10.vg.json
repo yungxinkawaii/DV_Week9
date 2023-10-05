@@ -1,0 +1,52 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/yungxinkawaii/DV_Week9/master/data/US%20Police%20shootings%20in%20from%202015-22.csv"
+  },
+  "width": 800,
+  "resolve": { "scale": { "color": "independent" } },
+  "transform": [
+    {
+      "filter": "datum.armed != null && datum.armed !== 'unarmed' && datum.armed !== 'undetermined'"
+    },
+    {
+      "groupby": ["state", "armed"],
+      "aggregate": [{ "op": "count", "as": "count" }]
+    },
+    { "filter": "datum.count > 27" }
+  ],
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "aggregate": "sum",
+          "field": "count",
+          "type": "quantitative",
+          "stack": "zero",
+          "axis": { "title": "Number of Cases" }
+        },
+        "y": { "field": "state", "axis": { "title": "States" }, "sort": "-x" },
+        "color": { "field": "armed", "type": "nominal", "title": "Armed Type" },
+        "tooltip": [
+          { "field": "state", "title": "State" },
+          { "field": "count", "title": "Total Case" }
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "color": "darkgrey", "dx": 15, "dy": 3},
+      "encoding": {
+        "x": {
+          "aggregate": "sum",
+          "field": "count",
+          "type": "quantitative",
+          "stack": "zero",
+          "bandPosition": 0.5
+        },
+        "y": { "field": "state", "type": "nominal", "sort": "-x" },
+        "text": {"aggregate":"sum", "field": "count", "type": "quantitative"}
+      }
+    }
+  ]
+}
