@@ -3,6 +3,11 @@
   "data": {
     "url": "https://raw.githubusercontent.com/yungxinkawaii/DV_Week9/master/data/US%20Police%20shootings%20in%20from%202015-22.csv"
   },
+  "title": {
+    "text": "Used Weapons of Victims by States",
+    "fontSize": 20,
+    "font": "Helvetica"
+  },
   "width": 800,
   "transform": [
     {
@@ -48,7 +53,21 @@
           "axis": { "title": "States" },
           "sort": "-x"
         },
-        "color": { "field": "armed", "type": "nominal", "title": "Armed Type" },
+        "color": {
+          "field": "armed",
+          "type": "nominal",
+          "title": "Armed Type",
+          "legend": {
+            "title": "Armed Type",
+            "titleFontSize": 15,
+            "titleFont": "Helvetica",
+            "direction": "vertical",
+            "orient": "right",
+            "labelFontSize": 15,
+            "labelFont": "Helvetica",
+            "titleLimit": 1000
+          }
+        },
         "opacity": {
           "condition": { "param": "armed_highlight", "value": 1 },
           "value": 0.2
