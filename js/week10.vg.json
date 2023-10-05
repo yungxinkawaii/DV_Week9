@@ -30,12 +30,13 @@
         "color": { "field": "armed", "type": "nominal", "title": "Armed Type" },
         "tooltip": [
           { "field": "state", "title": "State" },
-          { "field": "count", "title": "Total Case" }
+          { "field": "armed", "title": "Armed Type" },
+          { "field": "count", "title": "Number of Cases" }
         ]
       }
     },
     {
-      "mark": {"type": "text", "color": "darkgrey", "dx": 15, "dy": 3},
+      "mark": { "type": "text", "color": "darkgrey", "dx": 15, "dy": 3 },
       "encoding": {
         "x": {
           "aggregate": "sum",
@@ -45,7 +46,7 @@
           "bandPosition": 0.5
         },
         "y": { "field": "state", "type": "nominal", "sort": "-x" },
-        "text": {"aggregate":"sum", "field": "count", "type": "quantitative"}
+        "text": { "aggregate": "sum", "field": "count", "type": "quantitative" }
       }
     }
   ]
